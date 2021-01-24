@@ -8,7 +8,7 @@
 import Foundation
 
 public extension Array {
-    @inlinable func map<T>(_ transform: (Index,Element) throws -> T)  rethrows -> [T] {
+    @inlinable func mapIndexed<T>(_ transform: (Index,Element) throws -> T)  rethrows -> [T] {
         var index = 0
         var result: [T] = []
         for element in self {
@@ -18,7 +18,7 @@ public extension Array {
         return result
     }
     
-    @inlinable func forEach(_ body: (Index, Element) throws -> Void) rethrows{
+    @inlinable func forEachIndexed(_ body: (Index, Element) throws -> Void) rethrows{
         var index: Int = 0
         for element in self {
             try? body(index, element)
@@ -59,7 +59,7 @@ public extension Array where Element: Equatable {
     mutating func remove(element: Element) -> Element? {
         var indexOfElementToBeRemoved: Int?
         
-        forEach { (index, item) in
+        forEachIndexed { (index, item) in
             if item == element {
                 indexOfElementToBeRemoved = index
             }
