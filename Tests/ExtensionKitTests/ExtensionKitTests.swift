@@ -6,7 +6,6 @@ final class ExtensionKitTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(ExtensionKit().text, "Hello, World!")
     }
 
     static var allTests = [
