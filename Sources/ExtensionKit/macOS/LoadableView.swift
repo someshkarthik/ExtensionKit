@@ -18,7 +18,7 @@ public protocol LoadableView: class {
 public extension LoadableView where Self: NSView {
     func load(fromNIBNamed nibName: String? = nil) -> Bool {
         var nibObjects: NSArray?
-        let name = nibName ?? String(describing: self)
+        let name = nibName ?? String(describing: Self.self)
         let nibName = NSNib.Name(stringLiteral: name)
         
         guard Bundle.main.loadNibNamed(nibName, owner: self, topLevelObjects: &nibObjects),
