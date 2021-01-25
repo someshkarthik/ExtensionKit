@@ -9,13 +9,13 @@
 
 import Cocoa
 
-protocol LoadableView: class {
+public protocol LoadableView: class {
     var mainView: NSView? { get set }
     func load(fromNIBNamed nibName: String) -> Bool
     func add(toView parentView: NSView)
 }
 
-extension LoadableView where Self: NSView {
+public extension LoadableView where Self: NSView {
     func load(fromNIBNamed nibName: String? = nil) -> Bool {
         var nibObjects: NSArray?
         let name = nibName ?? String(describing: self)
