@@ -26,6 +26,7 @@ public extension LoadableView where Self: NSView {
             return false
         }
         
+        self.addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             view.leadingAnchor.constraint(equalTo: leadingAnchor),
