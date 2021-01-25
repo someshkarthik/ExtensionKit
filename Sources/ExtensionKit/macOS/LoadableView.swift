@@ -11,7 +11,7 @@ import Cocoa
 
 public protocol LoadableView: class {
     var mainView: NSView? { get set }
-    func load(fromNIBNamed nibName: String) -> Bool
+    func load(fromNIBNamed nibName: String?) -> Bool
     func add(toView parentView: NSView)
 }
 
