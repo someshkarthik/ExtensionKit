@@ -27,6 +27,7 @@ public extension UITableViewCell {
         let decoratorView = UIView()
         addSubview(decoratorView)
         
+        decoratorView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             decoratorView.topAnchor.constraint(equalTo: self.topAnchor),
             decoratorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),

@@ -77,6 +77,7 @@ public extension UIView {
     func pinToEdges(with margin: CGFloat = 0) {
         precondition(superview != nil, "Unable activate constraint since superview is not found")
         
+        self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.centerYAnchor.constraint(equalTo: self.superview!.centerYAnchor),
             self.centerXAnchor.constraint(equalTo: self.superview!.centerXAnchor),
@@ -88,6 +89,7 @@ public extension UIView {
     func addSeparatorView(height: CGFloat = 0.4,color: UIColor = ExtensionColors.seperatorColor){
         let separatorLine = UIView()
         separatorLine.backgroundColor = color
+        separatorLine.translatesAutoresizingMaskIntoConstraints = false
         addSubview(separatorLine)
         
         NSLayoutConstraint.activate([
