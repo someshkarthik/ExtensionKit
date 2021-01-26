@@ -15,6 +15,12 @@ public struct ExtensionKit {
     
     public static var localised = Localised()
     
+    #if canImport(Cocoa)
+    
+    public static var mainStoryBoardName = "Main"
+    
+    #endif
+    
     #if canImport(UIKit)
     
     public static var windowTransitionBackgroundColor: UIColor = ExtensionColors.bgColorWhite

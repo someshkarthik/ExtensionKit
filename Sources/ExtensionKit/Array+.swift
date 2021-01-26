@@ -83,3 +83,11 @@ public extension Array where Element: Equatable {
 }
 
 
+public extension Array where Element: FloatingPoint {
+    var total: Element {
+        return reduce(0, +)
+    }
+    var average: Element {
+        return isEmpty ? 0 : total / Element(count)
+    }
+}
