@@ -41,7 +41,11 @@ public extension NSTableView {
         clickedRow >= 0
     }
     
-    @inlinable func makeView<T: NSTableCellView>(identifier: NSUserInterfaceItemIdentifier? = nil, owner: Any?) -> T {
+    func registerNib<T: NSTableCellView>(_: T.Type) {
+        register(NSNib(nibNamed: T.reuseIdentifier.rawValue, bundle: nil), forIdentifier: T.reuseIdentifier)
+    }
+    
+    func makeView<T: NSTableCellView>(identifier: NSUserInterfaceItemIdentifier? = nil, owner: Any?) -> T {
         let cellIdentifier = identifier ?? T.reuseIdentifier
         let cell = makeView(withIdentifier: cellIdentifier, owner: owner) as? T
         precondition(cell != nil, "Tableview not registered with cell named \(cellIdentifier.rawValue)")
