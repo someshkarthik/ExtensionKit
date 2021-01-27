@@ -24,6 +24,34 @@ public extension String {
     }
 }
 
+
+#if os(macOS)
+
+import Cocoa
+
+extension String {
+    func sizeofText(withConstrainedSize constraintSize: CGSize, font: NSFont) -> CGSize {
+        if (self.isEmpty) { return CGSize.zero }
+        let boundingBox = self.boundingRect(with: constraintSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        
+        let finalSize = CGSize(width: boundingBox.width, height: boundingBox.height)
+        return finalSize
+    }
+    
+    func sizeOfText(font: NSFont) -> CGSize {
+        if (self.isEmpty) { return CGSize.zero }
+        let fontAttribute = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttribute)
+        
+        let finalSize = CGSize(width: ceil(size.width), height: ceil(size.height))
+        return finalSize;
+    }
+}
+
+
+#endif
+
+
 #if os(iOS)
 
 import UIKit
