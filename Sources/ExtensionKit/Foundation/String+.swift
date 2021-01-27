@@ -29,7 +29,7 @@ public extension String {
 
 import Cocoa
 
-extension String {
+public extension String {
     func sizeofText(withConstrainedSize constraintSize: CGSize, font: NSFont) -> CGSize {
         if (self.isEmpty) { return CGSize.zero }
         let boundingBox = self.boundingRect(with: constraintSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
