@@ -19,7 +19,7 @@ public extension NSView {
         return img
     }
     
-    var backgroundColor: NSColor? {
+    var _backgroundColor: NSColor? {
         get {
             if let backgroundColor = layer?.backgroundColor {
                 return NSColor(cgColor: backgroundColor)

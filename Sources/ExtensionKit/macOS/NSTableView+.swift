@@ -41,7 +41,7 @@ public extension NSTableView {
         clickedRow >= 0
     }
     
-    func registerNib<T: NSTableCellView>(_: T.Type) {
+    func registerNib<T: NSTableCellView>(_: T.Type = T.self) {
         register(NSNib(nibNamed: T.reuseIdentifier.rawValue, bundle: nil), forIdentifier: T.reuseIdentifier)
     }
     

@@ -26,7 +26,7 @@ public extension Array {
         }
     }
     
-    @inlinable mutating func forEachMutating(_ body: (Index, inout Element) throws -> Void) rethrows {
+    @inlinable mutating func forEachMutating(_ body: (Index, inout Element) throws -> Void) rethrows where Element: Any {
         for index in 0..<count {
             try? body(index, &self[index])
         }
