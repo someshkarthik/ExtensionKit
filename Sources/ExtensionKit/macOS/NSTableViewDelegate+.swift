@@ -15,7 +15,7 @@ import Cocoa
 }
 
 public extension ExtensionTableViewDelegate {
-    func tableViewSelectionDidChange(_ notification: Notification) {
+    @objc func tableViewSelectionDidChange(_ notification: Notification) {
         let tableView = notification.object as! NSTableView
         
         guard tableView.isSingleClicked else {
